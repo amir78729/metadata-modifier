@@ -40,6 +40,7 @@ def press(button):
             change_metadata(new_file_name)
         
 
+app = gui("Login Window", "400x200")
 
 app.addButton("select", select_file)
 
