@@ -13,8 +13,17 @@ def select_file():
     audiofile = eyed3.load(selected_filename)
 
     app.setLabel('file', 'selected file: ' + selected_filename[::-1].split('/', 1)[0][::-1])
-    app.setLabel('song', 'Song Name: ' + audiofile.tag.title)
-    app.setLabel('artist', 'Artist(s) Name: ' + audiofile.tag.artist)
+    
+    try:
+        app.setLabel('song', 'Song Name: ' + audiofile.tag.title)
+    except TypeError:
+        app.setLabel('song', 'Song Name: ????')
+
+    try:
+        app.setLabel('artist', 'Artist(s) Name: ' + audiofile.tag.artist)
+    except TypeError:
+        app.setLabel('artist', 'Artist(s) Name: ????')
+
     app.enableButton('Submit')
 
 
